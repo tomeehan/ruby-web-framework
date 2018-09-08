@@ -42,7 +42,7 @@ class App
         is_var = spec_comp.start_with?(':')
         if is_var
           key = spec_comp.sub(/\A:/, '')
-          params[key] = path_comp
+          params[key] = URI.decode(path_comp)
         else
           return nil unless path_comp = spec_comp
         end
